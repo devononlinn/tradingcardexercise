@@ -1,0 +1,26 @@
+.input-group.counter-input {
+    width: 6rem;
+}
+
+/* to style input use */
+.counter-input .form-control {
+    /* your style */
+    
+}
+/* to style buttons use */
+.counter-input .input-group-addon {
+    /* your style */
+    cursor: pointer;
+    width:33%;
+    height: 38px;
+    line-height: 38px;
+    text-align:center;
+    background-color: #f3f3f3;
+    border: solid 1px #c5c2c2;
+    border-radius: 8px;
+}
+
+.counter-input .input-group-addon .fa{
+    color: #454444;
+}
+

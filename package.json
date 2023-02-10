@@ -1,0 +1,11 @@
+{
+  "name": "traderkingapplication",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently \"cd server && nodemon --config nodemon.json index\" \"cd trader-king && npm start\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

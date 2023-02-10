@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,100;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:wght@300&family=Poppins&display=swap');
+
+:root{
+  /*color scheme*/
+  --dark: #252627;
+  --less-dark: #1e2d2f;
+  --red: #BB0A21;
+  --mid: #4B88A2;
+  --less-light: #FFF9FB;
+  --light: #D3D4D9;
+  --white: #fff;
+  --black: #222;
+}
+
+html, body {
+  height: 100%;
+  
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight:700;
+}
+
+p,a, td, th {
+  font-family: 'Montserrat', sans-serif;
+  font-weight:300;
+}
+
+#root {
+  height: 100%;  
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  max-width: 1100px !important;
+}
+
+.account-container {
+  background-color: #363636;
+  color: white;
+}
+
+.reg-form {
+  padding: 2rem 0;
+}
+
+.public-access {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-link i {
+  padding: 0 .5rem;
+}
+
+.nav-link:hover {
+  opacity: 0.75;
+}
+
+.navbar-brand:hover {
+  opacity: 0.75;
+}
+
+.card-actions, .car-actions {
+  text-align:center;
+}
+
+.card-pricing {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2rem;
+}
+
+.card-container {
+  display:flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card--child {
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+.total-row {
+  border-bottom: transparent;
+  text-align: center;
+  font-weight: bold;
+}
+
+.loading {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-icon span{
+  padding: 0 .5rem;
+}
+
+.logout-container {
+  text-align: right;
+  padding: 1rem 0;
+  padding-right:1rem;
+}
+
+.member-actions .button-icon {
+  text-align: right;
+}
+
+.cart-total {
+  border-bottom: transparent;
+}
+
+.buy-btn {
+  text-align: right;
+  padding-right:1rem;
+}
+
+.public-container {
+  text-align:right;
+}
+
+.public-container .public-Btn {
+  margin: 1rem 0;
+}
+
+.reg-Btn {
+  margin: 1rem 0;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.75);
+}
