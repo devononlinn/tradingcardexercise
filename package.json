@@ -1,6 +1,10 @@
 {
   "name": "traderkingapplication",
   "version": "1.0.0",
+  "workspaces": [
+    "auth-app",
+    "trader-king"
+  ],
   "scripts": {
     "start": "concurrently \"cd server && nodemon --config nodemon.json index\" \"cd trader-king && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1"
