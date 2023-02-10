@@ -2,7 +2,7 @@
   "name": "traderkingapplication",
   "version": "1.0.0",
   "workspaces": [
-    "auth-app",
+    "server",
     "trader-king"
   ],
   "scripts": {
