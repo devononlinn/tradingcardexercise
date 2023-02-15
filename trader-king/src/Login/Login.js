@@ -2,6 +2,7 @@ import React, { useEffect, useState }  from 'react';
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import sass from "../App.sass";
 
 export default function Login() {
 
@@ -10,6 +11,10 @@ export default function Login() {
     const [login, setLogin] = useState(false);
 
     const cookies = new Cookies();
+
+    const navToReg = (e) => {
+        console.log(e);
+    }
 
     const handleSubmit = (e) => {
         // prevent the form from refreshing the whole page
@@ -39,9 +44,9 @@ export default function Login() {
     }
 
     return (
-        <div className="reg-form">
+        <div className="access-container">
             <h2>Login</h2>
-            <Form onSubmit={(e)=>handleSubmit(e)}>
+            <Form onSubmit={(e)=>handleSubmit(e)} className="access-form">
                 {/* email */}
                 <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -59,7 +64,7 @@ export default function Login() {
                 <Form.Label>Password</Form.Label>
                 <Form.Control 
                     type="password" 
-                    placeholder="Password"
+                    placeholder="Enter password"
                     name="password"
                     onChange={(e) => setPassword(e.target.value)}
                     value={password} 
@@ -68,7 +73,7 @@ export default function Login() {
 
                 {/* submit button */}
                 <Button
-                    className="reg-Btn"
+                    className="access-btn"
                     variant="info" 
                     type="submit"
                     onClick={(e)=>handleSubmit(e)}

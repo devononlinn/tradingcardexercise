@@ -7,16 +7,15 @@ import CartComponent from "./CartComponent/CartComponent";
 import ProtectedRoutes from "./ProtectedRoutes";
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import "./App.css";
+import sass from "./App.sass";
 
 function App() {
-  
+
   return (
-    <Container>
+    <Container fluid className="app-container">
       <Row>
         <Col>
-          <Navbar bg="dark" expand="lg">
+          <Navbar bg="dark" expand="lg" variant="dark">
             <Container>
               <Navbar.Brand  style={{color:"#ffffff"}} href="/member">Trader King</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />

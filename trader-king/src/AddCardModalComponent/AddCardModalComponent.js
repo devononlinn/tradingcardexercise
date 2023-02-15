@@ -35,7 +35,7 @@ export default function AddCardModalComponent({ isOpen, data, onDataChange, onCl
   const reload=()=>window.location.reload();
 
   return (
-    <Modal style={{opacity:1}} show={isOpen} onHide={onClose} onExit={reload}>
+    <Modal style={{opacity:1}} show={isOpen} onHide={onClose} onExit={reload} centered>
         <Modal.Header closeButton>
             <Modal.Title>Add New Card</Modal.Title>
         </Modal.Header>

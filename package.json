@@ -11,5 +11,8 @@
   },
   "devDependencies": {
     "concurrently": "^7.6.0"
+  },
+  "dependencies": {
+    "sass": "^1.58.0"
   }
 }

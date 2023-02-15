@@ -1,0 +1,36 @@
+.account-container
+    color: $white
+    background: $main-dark-bg
+    height: 100%
+    .account-row
+        .account-col
+            padding: 2rem
+            .access-divider
+                text-align: center
+                padding: 1rem 0
+        .account-login, .account-register
+            margin: auto !important
+        .account-col--carousel
+            padding: 0
+            position: relative
+            .carousel-overlay
+                position: absolute
+                top: 0
+                bottom: 0
+                left: 0
+                right: 0
+                background: rgba(0,0,0,.85)
+                button
+                    position: absolute
+                    bottom: 15px
+                    left: 50%
+                    transform: translate(-50%)
+                    z-index: 9
+                h3
+                    position: absolute
+                    text-align: center
+                    left: 50%
+                    bottom: 55px
+                    transform: translateX(-50%)
+        .account-register
+            display: none  

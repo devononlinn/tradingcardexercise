@@ -40,11 +40,11 @@ export default function Register() {
     }
 
     return (
-        <div className="reg-form">
+        <div className="access-container">
             <h2>Register</h2>
-            <Form onSubmit={(e)=>handleSubmit(e)}>
+            <Form onSubmit={(e)=>handleSubmit(e)} className="access-form">
                 {/* firstname */}
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicFirstname">
                 <Form.Label>First name</Form.Label>
                 <Form.Control 
                     type="text" 
@@ -56,7 +56,7 @@ export default function Register() {
                 </Form.Group>
 
                 {/* lastname */}
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicLastname">
                 <Form.Label>Last name</Form.Label>
                 <Form.Control 
                     type="text" 
@@ -68,7 +68,7 @@ export default function Register() {
                 </Form.Group>
 
                 {/* email */}
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicEmailRegister">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control 
                     type="email" 
@@ -80,7 +80,7 @@ export default function Register() {
                 </Form.Group>
 
                 {/* password */}
-                <Form.Group controlId="formBasicPassword">
+                <Form.Group controlId="formBasicPasswordRegister">
                 <Form.Label>Password</Form.Label>
                 <Form.Control 
                     type="password" 
@@ -93,7 +93,7 @@ export default function Register() {
 
                 {/* submit button */}
                 <Button
-                    className="reg-Btn"
+                    className="access-btn"
                     variant="info"
                     type="submit"
                     onClick={(e) => handleSubmit(e)}
@@ -103,9 +103,17 @@ export default function Register() {
 
                 {/* display success message */}
                 {register ? (
-                <p className="text-success">Registered Successfully. Please login.</p>
+                    <span>
+                    <p className="text-success">Registered Successfully. Please login.</p>
+                    <Button
+                        className="access-btn"
+                        variant="info"
+                        type="submit"
+                        onClick={(e) => window.location.reload()}
+                    >Return to login</Button>
+                    </span>
                 ) : (
-                <p className="text-danger">You Are Not Registered</p>
+                    <p className="text-danger">You Are Not Registered</p>
                 )}
             </Form>
         </div>

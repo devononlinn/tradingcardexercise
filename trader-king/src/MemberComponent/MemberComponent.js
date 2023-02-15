@@ -6,7 +6,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import AddCardModalComponent from "../AddCardModalComponent/AddCardModalComponent";
 import Logout from "../Logout/Logout";
-import "./MemberComponent.css";
+import "../App.sass";
 
 
 export default function MemberComponent() {
@@ -123,11 +123,12 @@ export default function MemberComponent() {
     if (!displayCards) return <p className="loading">Loading...</p>;
 
     return (
-        <div>
-            <div className="member-actions">
-                <h2 className="pt-4 pb-4">Welcome back, { user.firstname ? user.firstname : user.userEmail }!</h2>
+        <section className="member-container">
+            <div className="component-header">
+                <h2>Welcome back, { user.firstname ? user.firstname : user.userEmail }!</h2>
                 <Logout></Logout>
-                
+            </div>
+            <div className="member-actions">
                 <Tabs
                     defaultActiveKey="allcards"
                     id="card-tabs"
@@ -136,12 +137,13 @@ export default function MemberComponent() {
                     >
                     <Tab eventKey="allcards" title="All Cards"></Tab>
                     <Tab eventKey="mycards" title="My Cards"></Tab>
+                    
                     <div className="card-container">
                     { 
                         displayCards? (
                             displayCards.map((item,index) => {
                                 return (
-                                    <Card className="mt-4 mb-4 card--child" style={{ width: '14rem'}} key={index}>
+                                    <Card className="mt-4 mb-4 card-child" style={{ width: '14rem'}} key={index}>
                                         <Card.Img variant="top" src={item.image} alt="card" />
                                         <Card.Body>
                                             <Card.Title>{item.name}</Card.Title>
@@ -210,7 +212,7 @@ export default function MemberComponent() {
                     displayCards? (
                         displayCards.map((item,index) => {
                             return (
-                                <Card className="mt-4 mb-4 card--child" style={{ width: '14rem'}} key={index}>
+                                <Card className="mt-4 mb-4 card-child" style={{ width: '14rem'}} key={index}>
                                     <Card.Img variant="top" src={item.image} alt="card" />
                                     <Card.Body>
                                         <Card.Title>{item.name}</Card.Title>
@@ -253,6 +255,6 @@ export default function MemberComponent() {
                 } 
             </div>
             
-        </div>
+        </section>
     );
 }

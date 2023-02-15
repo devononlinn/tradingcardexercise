@@ -2,9 +2,9 @@ import React, { useEffect, useState }  from 'react';
 import CounterInput from 'react-bootstrap-counter';
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { Button, Form, Table } from "react-bootstrap";
+import { Button, Form, Table, Modal } from "react-bootstrap";
 import Logout from '../Logout/Logout';
-import css from "./CartComponent.css";
+import "../App.sass";
 
 export default function CartComponent() {
 
@@ -110,83 +110,67 @@ export default function CartComponent() {
     }, [])
 
     return (
-        <div>
+        <section className="cart-container">
+            <div className="component-header">
+                <h2>Checkout</h2>
                 <Logout></Logout>
-                {
-                    <Table>
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <td>&nbsp;</td>
-                                <th>Description</th>
-                                <th>Price/Each</th>
-                                <th>Quantity</th>
-                                <th>Total:</th>
-                                <th>Remove</th>
-                            </tr>
-                        </thead>
-
-                        {
-                            purchases? (
-                                <tbody>
-                                    {
-                                        purchases.map((item,index) => {
-                                            return ( <tr key={index}>
-                                                <td className="align-middle">{item.name}</td>
-                                                <td className="align-middle"><img src={item.image} alt="item display"/></td>
-                                                <td className="align-middle">{item.description}</td>
-                                                <td className="align-middle">{item.price}</td>
-                                                <td className="align-middle">
-                                                <CounterInput 
-                                                    value={item.quantity} 
-                                                    min={0} 
-                                                    max={20} 
-                                                    onChange={(value) => {
-                                                        updateQuantity(item, value);
-                                                    }
-                                                }  
-                                                />
-                                                </td>
-                                                <td className="align-middle">
-                                                    <b>{item.price * item.quantity}</b>
-                                                </td>
-                                                <td className="align-middle">
+            </div>
+                    {purchases ? (
+                        <div className="cart">   
+                            {purchases.map((item,index) => {
+                                return ( 
+                                    <div className="cart-item">
+                                        <div className="item-data">
+                                            <div className="item-image">
+                                                <img src={item.image} alt="item display"/>
+                                            </div>
+                                            <div className="item-details">
+                                                <div><b>{item.name}</b></div>
+                                                <div style={{color: "#454444"}}>{item.description}</div>
+                                                <div>{item.price}</div>
+                                                <div className="details-quantity">
+                                                    <CounterInput 
+                                                        value={item.quantity}
+                                                        className="item-counter"
+                                                        min={1} 
+                                                        max={20}
+                                                        onChange={(value) => {
+                                                            updateQuantity(item, value);
+                                                        }
+                                                    }  
+                                                    />
+                                                    <div className="item-total">
+                                                        <b>Cost: </b>${item.price * item.quantity}<br />
+                                                        <small>(<em> ${item.price} x {item.quantity}</em> )</small>
+                                                    </div>
+                                                </div>
+                                                <div className="item-remove">
                                                     <Button
                                                         type="submit"
                                                         variant="outline-danger"
                                                         onClick={() => remove(item)}
                                                         >
-                                                        <span><i className="fa fa-times" aria-hidden="true"></i></span>
+                                                        Remove
                                                     </Button>
-                                                </td>
-                                            </tr> )
-                                            
-                                        })
-                                        
-                                    }
-                                    <tr className="cart-total">
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td><b><u>Total Cost: ${total}</u></b></td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                </tbody>
-                            ) : <tbody><tr><td>You have nothing in your cart</td></tr></tbody>
-                        }
-                    </Table>
-                }
-                <div className="buy-btn">
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                )})  
+                            }
+                        </div>
+                        
+                    ) : <p>You have nothing in your cart</p>}
+                <div className="cart-cost">
+                    <p>Total: ${total}</p>
                     <Button
                         type="submit"
                         variant="outline-primary"
                         onClick={() => update() }
                         >
-                        Buy
+                        Purchase
                     </Button>
-                </div>                
-        </div>
+                </div>            
+        </section>
     );
 }

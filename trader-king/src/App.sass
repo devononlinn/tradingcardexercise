@@ -1,0 +1,67 @@
+@import "./styles/variables.sass"
+@import "./styles/media-queries"
+@import "./styles/base.sass"
+@import "./styles/Account.sass"
+@import "./styles/Login.sass"
+@import "./styles/Public"
+@import "./styles/Member"
+@import "./styles/Cart"
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,100;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:wght@300&family=Poppins&display=swap')
+
+.app-container
+    height: 100%
+
+section[class$="-container"]
+    max-width: 1100px !important
+    margin: auto
+
+.component-header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    max-width: 1100px
+    margin: auto
+
+.public-access
+    flex-direction: column
+    align-items: center
+    text-align: center
+
+.navbar-toggler:focus
+    outline: none !important
+    box-shadow: none !important
+
+.navbar-toggler
+    border: none !important
+
+.nav-link i
+    padding: 0 .5rem
+
+.nav-link:hover
+    opacity: 0.75
+
+.navbar-brand:hover
+    opacity: 0.75
+
+.total-row
+    border-bottom: transparent
+    text-align: center
+    font-weight: bold
+
+.loading
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    color: $white
+
+.button-icon span
+    padding: 0 .5rem
+
+.logout-container
+    text-align: right
+    padding: 1rem 0
+    padding-right: 1rem
+
+.member-actions .button-icon
+    text-align: right

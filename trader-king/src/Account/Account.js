@@ -7,6 +7,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import pokemonBanner from '../assets/pokemon-banner.jpg';
 import baseballBanner from '../assets/baseball-banner.PNG';
 import magicBanner from '../assets/magic-banner.PNG';
+import sass from "../App.sass";
 
 export default function Account() {
 
@@ -15,64 +16,61 @@ export default function Account() {
 
   if(!token) {
     return (
-      <Container className="account-container">
-        <Carousel>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={pokemonBanner}
-              alt="Pokemon"
-            />
-            <Carousel.Caption>
-              <h3>Pokemon Cards</h3>
-              <p>Are they worth something? Who knows!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={baseballBanner}
-              alt="Baseball"
-            />
-
-            <Carousel.Caption>
-              <h3>Baseball Card</h3>
-              <p>Baseball cards at arbitrary values!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={magicBanner}
-              alt="Third slide"
-            />
-
-            <Carousel.Caption>
-              <h3>Magic The Gathering</h3>
-              <p>
-                Magic cards galore!
-              </p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
-        <Row className="public-access">
-          <p>Not sure you want to sign up? Check out inventory!</p>
-          <Button
-            type="link"
-            variant="info"
-            style={{width:"8rem"}}
-            onClick={ (e) => {
-              window.location.href = "/public";
-              
-            }}
-          >View Inventory</Button>
-        </Row>
-        <Row>
-          <Col xs={12} sm={12} md={6} lg={6}>
-            <Register />
+      <Container fluid className="account-container">
+        <Row className="account-row">
+          <Col xs={12} sm={12} md={12} lg={12} className="account-col account-col--carousel">
+            <Carousel>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={pokemonBanner}
+                  alt="Pokemon"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={baseballBanner}
+                  alt="Baseball"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={magicBanner}
+                  alt="Third slide"
+                />
+              </Carousel.Item>
+            </Carousel>
+            <div className="carousel-overlay">
+              <h3>Check out our inventory!</h3>
+              <Button
+                  type="link"
+                  variant="info"
+                  style={{width:"8rem"}}
+                  onClick={ (e) => {
+                    window.location.href = "/public";
+                  }}
+                >View
+                </Button>
+              </div>
           </Col>
-          <Col xs={12} sm={12} md={6} lg={6}>
+          <Col xs={12} sm={12} md={6} lg={6} className="account-col account-login" id="account-login">
             <Login />
+            <div className="access-divider">OR</div>
+            <Button
+              variant="info"
+              className="access-btn"
+              onClick={(e) => {
+                document.getElementById("account-login").style.display = "none";
+                document.getElementById("account-registration").style.display = "block";
+              }}
+            >
+              Register for Account
+            </Button>
+          </Col>
+          <Col xs={12} sm={12} md={6} lg={6} className="account-col account-register" id="account-registration">
+            <Register />
           </Col>
         </Row>
       </Container>
